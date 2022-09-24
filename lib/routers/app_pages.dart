@@ -3,6 +3,8 @@ import 'package:flutter_learn/pages/detail_page/detail_controller.dart';
 import 'package:flutter_learn/pages/detail_page/detail_page.dart';
 import 'package:flutter_learn/pages/detail_page/test1_page.dart';
 import 'package:flutter_learn/pages/detail_page/test2_page.dart';
+import 'package:flutter_learn/pages/learn_page/learn_controller.dart';
+import 'package:flutter_learn/pages/learn_page/learn_page.dart';
 import 'package:flutter_learn/pages/main_navigation_controller.dart';
 import 'package:flutter_learn/pages/main_navigation.dart';
 import 'package:get/get.dart';
@@ -33,6 +35,11 @@ class AppPages {
       name: AppRouters.detail,
       page: () => DetailPage(),
       binding: DetailBinding(),
+    ),
+    GetPage(
+      name: AppRouters.learn,
+      page: () => const LearnPage(),
+      binding: LearnPageBinding(),
     ),
     GetPage(name: AppRouters.test1, page: () => const Test1Page()),
     GetPage(name: AppRouters.test2, page: () => const Test2Page()),

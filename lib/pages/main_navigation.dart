@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learn/pages/home_page/home_page.dart';
+import 'package:flutter_learn/pages/learn_page/learn_page.dart';
 import 'package:flutter_learn/pages/main_navigation_controller.dart';
 import 'package:flutter_learn/pages/me_page/me_page.dart';
 import 'package:get/get.dart';
@@ -36,14 +37,15 @@ class MainNavigation extends GetView<MainNavigationController> {
           controller: controller.tabController,
           children: <Widget>[
             HomePage(controller.tabController),
-            Container(
-              color: Colors.white,
-              child: GestureDetector(
-                onTap: () => controller.increment(1),
-                child:
-                    Obx(() => Center(child: Text(controller.count.toString()))),
-              ),
-            ),
+            const LearnPage(),
+            // Container(
+            //   color: Colors.white,
+            //   child: GestureDetector(
+            //     onTap: () => controller.increment(1),
+            //     child:
+            //         Obx(() => Center(child: Text(controller.count.toString()))),
+            //   ),
+            // ),
             MePage(controller.tabController),
           ],
         ),
