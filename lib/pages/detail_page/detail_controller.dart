@@ -5,12 +5,16 @@ class DetailController extends GetxController {
   var name = 'DetailController'.obs;
 
   back() {
-    Get.offAllNamed(AppRouters.main);
     // Get.until((route) => false);
-    // Get.offUntil(
-    //   GetPageRoute(page: () => const DetailPage()),
-    //   (route) => (route as GetPageRoute).routeName == AppRouters.me,
-    // );
+    // Get.offAllNamed(AppRouters.main, arguments: {'index': 1, 'age': 'test'});
+    Get.until((route) => Get.currentRoute == AppRouters.main);
+    // Get.toNamed(AppRouters.main);
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+    print('detail controller 初始化了');
   }
 }
 

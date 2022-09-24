@@ -16,6 +16,7 @@ class MainNavigation extends StatefulWidget {
 class _MainNavigationState extends State<MainNavigation>
     with SingleTickerProviderStateMixin {
   late TabController tabController;
+  late var arg = Get.arguments;
 
   late final List<String> _tabs = [
     "首页",
@@ -26,6 +27,10 @@ class _MainNavigationState extends State<MainNavigation>
   @override
   void initState() {
     tabController = TabController(length: 3, vsync: this);
+    if (arg != null) {
+      var index = arg["index"];
+      tabController.animateTo(index);
+    }
 
     tabController.addListener(onChange);
     super.initState();
@@ -41,12 +46,9 @@ class _MainNavigationState extends State<MainNavigation>
     super.dispose();
   }
 
-  final globalKey = GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: globalKey,
       appBar: AppBar(
         title: Text(_tabs[tabController.index]),
       ),
@@ -80,6 +82,7 @@ class MainNavigationBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut<HomeController>(() => HomeController());
+    // Get.put(HomeController());
     Get.lazyPut<MeController>(() => MeController());
   }
 }
