@@ -1,88 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/pages/home_page/home_controller.dart';
 import 'package:flutter_learn/pages/home_page/home_page.dart';
-import 'package:flutter_learn/pages/me_page/me_controller.dart';
+import 'package:flutter_learn/pages/main_navigation_controller.dart';
 import 'package:flutter_learn/pages/me_page/me_page.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 
-class MainNavigation extends StatefulWidget {
+class MainNavigation extends GetView<MainNavigationController> {
   const MainNavigation({super.key});
 
   @override
-  State<MainNavigation> createState() => _MainNavigationState();
-}
-
-class _MainNavigationState extends State<MainNavigation>
-    with SingleTickerProviderStateMixin {
-  late TabController tabController;
-  late var arg = Get.arguments;
-
-  late final List<String> _tabs = [
-    "首页",
-    "分类",
-    "我的",
-  ];
-
-  @override
-  void initState() {
-    tabController = TabController(length: 3, vsync: this);
-    if (arg != null) {
-      var index = arg["index"];
-      tabController.animateTo(index);
-    }
-
-    tabController.addListener(onChange);
-    super.initState();
-  }
-
-  onChange() {
-    setState(() {});
-  }
-
-  @override
-  void dispose() {
-    tabController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(_tabs[tabController.index]),
-      ),
-      bottomNavigationBar: GFTabBar(
-        length: 3,
-        controller: tabController,
-        tabs: const [
-          Tab(icon: Icon(Icons.home), child: Text("Tab1")),
-          Tab(icon: Icon(Icons.chat), child: Text("Tab2")),
-          Tab(icon: Icon(Icons.book), child: Text("Tab3")),
-        ],
-      ),
-      // bottomNavigationBar: BottomNavigationBar(items: const [
-      //   BottomNavigationBarItem(icon: Icon(Icons.home), label: ("Tab1")),
-      //   BottomNavigationBarItem(icon: Icon(Icons.chat), label: ("Tab2")),
-      //   BottomNavigationBarItem(icon: Icon(Icons.book), label: ("Tab3")),
-      // ]),
-      body: GFTabBarView(
-        controller: tabController,
-        children: <Widget>[
-          HomePage(tabController),
-          Container(color: Colors.white),
-          MePage(tabController),
-        ],
+    return Obx(
+      () => Scaffold(
+        appBar: AppBar(
+          title: Text(
+            controller.title.value,
+          ),
+        ),
+        bottomNavigationBar: GFTabBar(
+          // key: AppPages.globalKey,
+          length: 3,
+          controller: controller.tabController,
+          tabs: const [
+            Tab(icon: Icon(Icons.home), child: Text("Tab1")),
+            Tab(icon: Icon(Icons.chat), child: Text("Tab2")),
+            Tab(icon: Icon(Icons.book), child: Text("Tab3")),
+          ],
+        ),
+        // bottomNavigationBar: BottomNavigationBar(items: const [
+        //   BottomNavigationBarItem(icon: Icon(Icons.home), label: ("Tab1")),
+        //   BottomNavigationBarItem(icon: Icon(Icons.chat), label: ("Tab2")),
+        //   BottomNavigationBarItem(icon: Icon(Icons.book), label: ("Tab3")),
+        // ]),
+        body: GFTabBarView(
+          controller: controller.tabController,
+          children: <Widget>[
+            HomePage(controller.tabController),
+            Container(
+              color: Colors.white,
+              child: GestureDetector(
+                onTap: () => controller.increment(1),
+                child:
+                    Obx(() => Center(child: Text(controller.count.toString()))),
+              ),
+            ),
+            MePage(controller.tabController),
+          ],
+        ),
       ),
     );
-  }
-}
-
-class MainNavigationBinding implements Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut<HomeController>(() => HomeController());
-    // Get.put(HomeController());
-    Get.lazyPut<MeController>(() => MeController());
   }
 }

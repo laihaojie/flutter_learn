@@ -7,8 +7,9 @@ class DetailController extends GetxController {
   back() {
     // Get.until((route) => false);
     // Get.offAllNamed(AppRouters.main, arguments: {'index': 1, 'age': 'test'});
-    Get.until((route) => Get.currentRoute == AppRouters.main);
+    // Get.until((route) => Get.currentRoute == AppRouters.main);
     // Get.toNamed(AppRouters.main);
+    Get.toNamed(AppRouters.test1);
   }
 
   @override

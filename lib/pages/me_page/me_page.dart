@@ -15,7 +15,12 @@ class MePage extends GetView<MeController> {
           GestureDetector(
             onTap: () => controller.add(),
             child: Center(
-              child: Text('我的 ${controller.count}'),
+              child: Column(
+                children: [
+                  MyText(controller.count.value),
+                  MyText(DateTime.now()),
+                ],
+              ),
             ),
           ),
           ElevatedButton(
@@ -33,5 +38,21 @@ class MePage extends GetView<MeController> {
         ],
       ),
     );
+  }
+}
+
+class MyText extends StatefulWidget {
+  const MyText(this.count, {super.key});
+
+  final count;
+
+  @override
+  State<MyText> createState() => _MyTextState();
+}
+
+class _MyTextState extends State<MyText> {
+  @override
+  Widget build(BuildContext context) {
+    return Text('我的 ${widget.count}');
   }
 }
