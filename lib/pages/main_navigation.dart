@@ -34,6 +34,7 @@ class MainNavigation extends GetView<MainNavigationController> {
         //   BottomNavigationBarItem(icon: Icon(Icons.book), label: ("Tab3")),
         // ]),
         body: GFTabBarView(
+          physics: const BouncingScrollPhysics(),
           controller: controller.tabController,
           children: <Widget>[
             HomePage(controller.tabController),

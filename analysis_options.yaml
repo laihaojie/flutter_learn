@@ -26,7 +26,7 @@ dart_code_metrics:
     - test/**
 
   rules-exclude:
-    - lib/beans/**
+    - lib/models/**
 
   rules:
     # common
