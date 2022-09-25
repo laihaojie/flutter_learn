@@ -9,22 +9,73 @@ class LearnOtherWidget extends StatelessWidget {
       appBar: AppBar(
         title: const Text('OtherWidget'),
       ),
-      // body: const ScrollPicker(), // 滚动选择器
-      body: PageView(
-        children: [
-          Container(color: Colors.red),
-          Container(color: Colors.blue),
-          Container(color: Colors.yellow),
+      body: const ScrollPicker(), // 滚动选择器
+      // body: const ScrollPageView(),
+      // body: const ReorderableListViewWidget(),
+      // body: const ScrollView(),
+    );
+  }
+}
+
+class ScrollView extends StatelessWidget {
+  const ScrollView({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: const [
+          FlutterLogo(size: 500),
+          FlutterLogo(size: 500),
         ],
       ),
     );
   }
 }
 
+class ReorderableListViewWidget extends StatelessWidget {
+  const ReorderableListViewWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ReorderableListView(
+      header: const Center(child: Text('header')),
+      onReorder: ((oldIndex, newIndex) => print(oldIndex)),
+      children: List.generate(
+        20,
+        (index) => Container(
+          key: ValueKey(index),
+          height: 100,
+          color: Colors.primaries[index % Colors.primaries.length],
+          child: Center(child: Text('Item $index')),
+        ),
+      ),
+    );
+  }
+}
+
+class ScrollPageView extends StatelessWidget {
+  const ScrollPageView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return PageView(
+      pageSnapping: false, // 是否自动贴合边界
+      scrollDirection: Axis.vertical, // 滚动方向
+      onPageChanged: (value) => print(value), // 页面改变时回调
+      children: [
+        Container(color: Colors.red),
+        Container(color: Colors.blue),
+        Container(color: Colors.yellow),
+      ],
+    );
+  }
+}
+
 class ScrollPicker extends StatelessWidget {
-  const ScrollPicker({
-    Key? key,
-  }) : super(key: key);
+  const ScrollPicker({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
