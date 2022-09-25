@@ -35,11 +35,47 @@ class LearnListView extends StatelessWidget {
       ),
 
       // body: const ListVIewSeparated(),
-      body: ListView.builder(
+      // body: ListViewController(controller: _controller),
+      // body: ListViewScrollbar(controller: _controller),
+      body: RefreshIndicator(
+        onRefresh: () async {
+          await Future.delayed(const Duration(seconds: 1));
+          print('刷新');
+        },
+        strokeWidth: 4.0,
+        color: Colors.red,
+        backgroundColor: Colors.blue,
+        child: NotificationListener(
+          // 事件冒泡拦截
+          onNotification: (notification) {
+            print(notification);
+
+            return false; // true:阻止冒泡，false:继续冒泡
+          },
+          child: ListViewScrollbar(controller: _controller),
+        ),
+      ),
+    );
+  }
+}
+
+class ListViewScrollbar extends StatelessWidget {
+  const ListViewScrollbar({
+    Key? key,
+    required ScrollController controller,
+  })  : _controller = controller,
+        super(key: key);
+
+  final ScrollController _controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scrollbar(
+      thumbVisibility: true, // 是否一直显示滚动条
+      controller: _controller,
+      child: ListView.builder(
         padding: const EdgeInsets.only(bottom: 100),
         controller: _controller,
-        // physics: const NeverScrollableScrollPhysics(), // 限制列表无法滚动
-        physics: const BouncingScrollPhysics(), // 下拉到顶部的回弹效果
         itemCount: 100,
         itemBuilder: (context, index) {
           return Container(
@@ -48,8 +84,36 @@ class LearnListView extends StatelessWidget {
             child: Text('item $index'),
           );
         },
-        itemExtent: 100, // 主轴方向高度限制为100
       ),
+    );
+  }
+}
+
+class ListViewController extends StatelessWidget {
+  const ListViewController({
+    Key? key,
+    required ScrollController controller,
+  })  : _controller = controller,
+        super(key: key);
+
+  final ScrollController _controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      padding: const EdgeInsets.only(bottom: 100),
+      controller: _controller,
+      // physics: const NeverScrollableScrollPhysics(), // 限制列表无法滚动
+      physics: const BouncingScrollPhysics(), // 下拉到顶部的回弹效果
+      itemCount: 100,
+      itemBuilder: (context, index) {
+        return Container(
+          height: 50,
+          alignment: Alignment.center,
+          child: Text('item $index'),
+        );
+      },
+      itemExtent: 100, // 主轴方向高度限制为100
     );
   }
 }
