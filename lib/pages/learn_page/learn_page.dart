@@ -15,7 +15,7 @@ class LearnPage extends GetView<LearnController> {
           ListTile(
             title: const Text("ListView"),
             subtitle: const Text('ListView'),
-            onTap: () => Get.to(() => const LearnListView()),
+            onTap: () => Get.to(() => LearnListView()),
           ),
         ],
       ),
