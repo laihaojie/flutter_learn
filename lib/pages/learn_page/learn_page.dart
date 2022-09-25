@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learn/pages/learn_page/learn_controller.dart';
+import 'package:flutter_learn/pages/learn_page/learn_widget/learn_list_view.dart';
 import 'package:get/get.dart';
 
 class LearnPage extends GetView<LearnController> {
@@ -12,9 +13,9 @@ class LearnPage extends GetView<LearnController> {
         children: [
           Text('LearnPage ${controller.count}'),
           ListTile(
-            title: const Text("导航-返回"),
-            subtitle: const Text('Get.back()'),
-            onTap: () => Get.back(),
+            title: const Text("ListView"),
+            subtitle: const Text('ListView'),
+            onTap: () => Get.to(() => const LearnListView()),
           ),
         ],
       ),
