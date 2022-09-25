@@ -34,26 +34,120 @@ class LearnListView extends StatelessWidget {
         ),
       ),
 
-      // body: const ListVIewSeparated(),
-      // body: ListViewController(controller: _controller),
-      // body: ListViewScrollbar(controller: _controller),
-      body: RefreshIndicator(
-        onRefresh: () async {
-          await Future.delayed(const Duration(seconds: 1));
-          print('刷新');
-        },
-        strokeWidth: 4.0,
-        color: Colors.red,
-        backgroundColor: Colors.blue,
-        child: NotificationListener(
-          // 事件冒泡拦截
-          onNotification: (notification) {
-            print(notification);
+      // body: const ListVIewSeparated(), // 分割线
+      // body: ListViewController(controller: _controller), // 滚动监听
+      // body: ListViewScrollbar(controller: _controller), // 滚动条
+      // body: ListViewRefresh(_controller), // 下拉刷新
+      body: ListViewDismissible(controller: _controller), // 滑动删除
+    );
+  }
+}
 
-            return false; // true:阻止冒泡，false:继续冒泡
+class ListViewDismissible extends StatelessWidget {
+  const ListViewDismissible({
+    Key? key,
+    required ScrollController controller,
+  })  : _controller = controller,
+        super(key: key);
+
+  final ScrollController _controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      controller: _controller,
+      itemBuilder: (context, index) {
+        return Dismissible(
+          key: UniqueKey(),
+          onDismissed: (direction) {
+            // 删除后的回调
+            print(direction); // 滑动的方向
           },
-          child: ListViewScrollbar(controller: _controller),
-        ),
+          confirmDismiss: (direction) {
+            // 确认删除
+            return showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: const Text('提示'),
+                  content: const Text('确定删除吗？'),
+                  actions: <Widget>[
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop(true);
+                      },
+                      child: const Text('确定'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop(false);
+                      },
+                      child: const Text('取消'),
+                    ),
+                  ],
+                );
+              },
+            );
+          },
+          onResize: () {
+            // 删除后重绘的回调
+            print('onResize');
+          },
+          // 左边滑动的背景
+          background: Container(
+            color: Colors.green,
+            alignment: Alignment.centerLeft,
+            child: const Text('左边'),
+          ),
+          // 右边滑动的背景
+          secondaryBackground: Container(
+            color: Colors.red,
+            alignment: Alignment.centerRight,
+            child: const Text('右边'),
+          ),
+          direction: DismissDirection.endToStart, // 滑动的方向
+          dismissThresholds: const {
+            // 滑动的阈值
+            DismissDirection.endToStart: 0.5,
+            DismissDirection.startToEnd: 0.5,
+          },
+          resizeDuration: const Duration(milliseconds: 200), // 重绘的时间
+          movementDuration: const Duration(milliseconds: 200), // 滑动动画时间
+          child: Container(
+            color: Colors.blue[100 * (index % 9)],
+            height: 50,
+            alignment: Alignment.center,
+            child: Text('item $index'),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class ListViewRefresh extends StatelessWidget {
+  const ListViewRefresh(this._controller, {Key? key}) : super(key: key);
+
+  final ScrollController _controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return RefreshIndicator(
+      onRefresh: () async {
+        await Future.delayed(const Duration(seconds: 1));
+        print('刷新');
+      },
+      strokeWidth: 4.0,
+      color: Colors.red,
+      backgroundColor: Colors.blue,
+      child: NotificationListener(
+        // 事件冒泡拦截
+        onNotification: (notification) {
+          print(notification);
+
+          return false; // true:阻止冒泡，false:继续冒泡
+        },
+        child: ListViewScrollbar(controller: _controller),
       ),
     );
   }
