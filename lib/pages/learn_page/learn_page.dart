@@ -7,16 +7,16 @@ class LearnPage extends GetView<LearnController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('LearnPage')),
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              Text('LearnPage ${controller.count}'),
-            ],
+    return Center(
+      child: Column(
+        children: [
+          Text('LearnPage ${controller.count}'),
+          ListTile(
+            title: const Text("导航-返回"),
+            subtitle: const Text('Get.back()'),
+            onTap: () => Get.back(),
           ),
-        ),
+        ],
       ),
     );
   }

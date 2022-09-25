@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learn/pages/home_page/home_controller.dart';
+import 'package:flutter_learn/pages/learn_page/learn_controller.dart';
 import 'package:flutter_learn/pages/me_page/me_controller.dart';
 import 'package:get/get.dart';
 
@@ -51,6 +52,7 @@ class MainNavigationBinding implements Bindings {
   void dependencies() {
     Get.lazyPut<MainNavigationController>(() => MainNavigationController());
     Get.lazyPut<HomeController>(() => HomeController());
+    Get.lazyPut<LearnController>(() => LearnController());
     // Get.put(HomeController());
     Get.lazyPut<MeController>(() => MeController());
   }
