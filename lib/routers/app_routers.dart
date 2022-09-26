@@ -11,4 +11,6 @@ abstract class AppRouters {
   static const test2 = '/test2';
 
   static const learn = '/learn';
+
+  static const challenge = '/challenge';
 }

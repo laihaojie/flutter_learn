@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learn/pages/challenge_page/challenge_controller.dart';
 import 'package:flutter_learn/pages/home_page/home_controller.dart';
 import 'package:flutter_learn/pages/learn_page/learn_controller.dart';
 import 'package:flutter_learn/pages/me_page/me_controller.dart';
@@ -8,10 +9,11 @@ class MainNavigationController extends GetxController
     with GetSingleTickerProviderStateMixin {
   var count = 10.obs;
 
-  late var tabController = TabController(length: 3, vsync: this);
+  late var tabController = TabController(length: 4, vsync: this);
   late var arg = Get.arguments;
   late final List<String> tabs = [
     "首页",
+    "挑战",
     "分类",
     "我的",
   ];
@@ -55,5 +57,6 @@ class MainNavigationBinding implements Bindings {
     Get.lazyPut<LearnController>(() => LearnController());
     // Get.put(HomeController());
     Get.lazyPut<MeController>(() => MeController());
+    Get.lazyPut<ChallengeController>(() => ChallengeController());
   }
 }

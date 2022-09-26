@@ -27,6 +27,11 @@ class AppPages {
         //   name: AppRouters.me,
         //   page: () => const MePage(),
         // ),
+        // GetPage(
+        //   name: AppRouters.challenge,
+        //   page: () => ChallengePage(),
+        //   binding: ChallengeBinding(),
+        // ),
       ],
     ),
     GetPage(
