@@ -31,7 +31,7 @@ class LearnPage extends GetView<LearnController> {
             onTap: () => Get.to(() => const LearnOtherWidget()),
           ),
           ListTile(
-            title: const Text("FutureBuilder"),
+            title: const Text("FutureBuilder & StreamBuilder"),
             subtitle: const Text('异步组件'),
             onTap: () => Get.to(() => const LearnFutureBuilder()),
           ),

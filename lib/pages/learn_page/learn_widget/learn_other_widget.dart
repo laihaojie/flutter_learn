@@ -13,6 +13,28 @@ class LearnOtherWidget extends StatelessWidget {
       // body: const ScrollPageView(),
       // body: const ReorderableListViewWidget(),
       // body: const ScrollView(),
+      // body: const DefaultTextStyleWidget(),
+    );
+  }
+}
+
+class DefaultTextStyleWidget extends StatelessWidget {
+  const DefaultTextStyleWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      // DefaultTextStyle.merge() 会将当前 DefaultTextStyle 的属性合并到子树中
+      child: DefaultTextStyle(
+        style: const TextStyle(fontSize: 40, color: Colors.red),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text('hello'),
+            Text('哈哈哈'),
+          ],
+        ),
+      ),
     );
   }
 }

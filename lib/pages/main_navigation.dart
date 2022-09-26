@@ -37,8 +37,8 @@ class MainNavigation extends GetView<MainNavigationController> {
           physics: const BouncingScrollPhysics(),
           controller: controller.tabController,
           children: <Widget>[
-            HomePage(controller.tabController),
             const LearnPage(),
+            HomePage(controller.tabController),
             // Container(
             //   color: Colors.white,
             //   child: GestureDetector(
