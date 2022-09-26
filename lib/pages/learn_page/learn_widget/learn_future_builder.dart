@@ -20,6 +20,14 @@ class _LearnFutureBuilderState extends State<LearnFutureBuilder> {
   // final Stream _stream =
   //     Stream.periodic(const Duration(seconds: 1), ((computationCount) => 1));
 
+  // 通过函数创建一个 Stream
+  Stream<DateTime> getTime() async* {
+    while (true) {
+      yield DateTime.now();
+      await Future.delayed(const Duration(seconds: 1));
+    }
+  }
+
   @override
   void dispose() {
     _controller.close();
@@ -77,10 +85,11 @@ class _LearnFutureBuilderState extends State<LearnFutureBuilder> {
               // ),
               StreamBuilder(
                 // stream: _stream,
-                stream: _controller.stream
-                    .where((event) => event is int)
-                    .map((event) => event * 2)
-                    .distinct(),
+                stream: getTime(),
+                // stream: _controller.stream
+                //     .where((event) => event is int)
+                //     .map((event) => event * 2)
+                //     .distinct(),
                 builder: (context, snapshot) {
                   print('building');
                   switch (snapshot.connectionState) {
