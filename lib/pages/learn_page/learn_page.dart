@@ -4,6 +4,7 @@ import 'package:flutter_learn/pages/learn_page/learn_widget/learn_future_builder
 import 'package:flutter_learn/pages/learn_page/learn_widget/learn_other_widget.dart';
 import 'package:flutter_learn/pages/learn_page/learn_widget/learn_grid_view.dart';
 import 'package:flutter_learn/pages/learn_page/learn_widget/learn_list_view.dart';
+import 'package:flutter_learn/pages/learn_page/learn_widget/learn_sliver_widget.dart';
 import 'package:get/get.dart';
 
 class LearnPage extends GetView<LearnController> {
@@ -34,6 +35,11 @@ class LearnPage extends GetView<LearnController> {
             title: const Text("FutureBuilder & StreamBuilder"),
             subtitle: const Text('异步组件'),
             onTap: () => Get.to(() => const LearnFutureBuilder()),
+          ),
+          ListTile(
+            title: const Text("SliverWidget"),
+            subtitle: const Text('滚动组件'),
+            onTap: () => Get.to(() => const LearnSliverWidget()),
           ),
         ],
       ),
