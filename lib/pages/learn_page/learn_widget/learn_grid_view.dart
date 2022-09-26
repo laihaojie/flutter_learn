@@ -9,17 +9,15 @@ class LearnGridView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('GridView'),
       ),
-      // body: const GridViewDelegate(),
-      // body: const GridViewExtent(),
-      body: const GridViewCount(),
+      body: const GridViewDelegate(), // GridView 委托
+      // body: const GridViewExtent(), // 通过指定每个子元素的最大宽度来创建网格
+      // body: const GridViewCount(), // 通过数量创建网格
     );
   }
 }
 
 class GridViewCount extends StatelessWidget {
-  const GridViewCount({
-    Key? key,
-  }) : super(key: key);
+  const GridViewCount({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +45,7 @@ class GridViewCount extends StatelessWidget {
 }
 
 class GridViewExtent extends StatelessWidget {
-  const GridViewExtent({
-    Key? key,
-  }) : super(key: key);
+  const GridViewExtent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -68,9 +64,7 @@ class GridViewExtent extends StatelessWidget {
 }
 
 class GridViewDelegate extends StatelessWidget {
-  const GridViewDelegate({
-    Key? key,
-  }) : super(key: key);
+  const GridViewDelegate({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -89,6 +83,9 @@ class GridViewDelegate extends StatelessWidget {
         crossAxisSpacing: 10, // 次轴(水平)方向间距
         childAspectRatio: 2 / 1, // 子组件宽高长度比例
       ),
+      shrinkWrap: true, // 真空包装 包裹住子元素 解决无限高度问题
+      // physics: const NeverScrollableScrollPhysics(), // 禁用滚动事件
+      physics: const BouncingScrollPhysics(), // 弹性滚动
       itemCount: 100,
       itemBuilder: (context, index) {
         return Container(
