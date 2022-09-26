@@ -8,12 +8,21 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => GestureDetector(
-        onTap: () => controller.increment(),
-        child: Center(
-          child: Text('首页 ${controller.counter}'),
-        ),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const FlutterLogo(size: 100),
+          const FlutterLogo(size: 100),
+          const FlutterLogo(size: 100),
+          // ignore: avoid-shrink-wrap-in-lists
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: 10,
+            itemBuilder: ((context, index) {
+              return Text("index: $index");
+            }),
+          ),
+        ],
       ),
     );
   }
