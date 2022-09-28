@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learn/pages/learn_page/learn_controller.dart';
+import 'package:flutter_learn/pages/learn_page/learn_widget/learn_fitted_box.dart';
 import 'package:flutter_learn/pages/learn_page/learn_widget/learn_future_builder.dart';
+import 'package:flutter_learn/pages/learn_page/learn_widget/learn_interactive_viewer.dart';
+import 'package:flutter_learn/pages/learn_page/learn_widget/learn_layout_builder.dart';
 import 'package:flutter_learn/pages/learn_page/learn_widget/learn_other_widget.dart';
 import 'package:flutter_learn/pages/learn_page/learn_widget/learn_grid_view.dart';
 import 'package:flutter_learn/pages/learn_page/learn_widget/learn_list_view.dart';
+import 'package:flutter_learn/pages/learn_page/learn_widget/learn_safe_area.dart';
 import 'package:flutter_learn/pages/learn_page/learn_widget/learn_sliver_widget.dart';
 import 'package:flutter_learn/pages/learn_page/learn_widget/learn_will_pop_scope.dart';
 import 'package:get/get.dart';
@@ -14,9 +18,8 @@ class LearnPage extends GetView<LearnController> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
+      child: ListView(
         children: [
-          Text('LearnPage ${controller.count}'),
           ListTile(
             title: const Text("ListView"),
             subtitle: const Text('列表'),
@@ -46,6 +49,28 @@ class LearnPage extends GetView<LearnController> {
             title: const Text("WillPopScope"),
             subtitle: const Text('禁用返回键'),
             onTap: () => Get.to(() => const LearnWillPopScope()),
+          ),
+          ListTile(
+            title: const Text("FittedBox"),
+            subtitle: const Text('字体大小自适应父组件-宽度'),
+            onTap: () => Get.to(() => const LearnFittedBox()),
+          ),
+          ListTile(
+            title: const Text("SafeArea"),
+            subtitle: const Text('安全区域 最小边距padding'),
+            onTap: () => Get.to(() => const LearnSafeArea()),
+          ),
+          ListTile(
+            title: const Text("LayoutBuilder & OrientationBuilder"),
+            subtitle: const Text(
+              'LayoutBuilder 获取父组件传递的约束大小- 实现自适应 父亲高度的一半\r\n OrientationBuilder 获取屏幕方向',
+            ),
+            onTap: () => Get.to(() => const LearnLayoutBuilder()),
+          ),
+          ListTile(
+            title: const Text("InteractiveViewer"),
+            subtitle: const Text('二维平面缩放'),
+            onTap: () => Get.to(() => const LearnInteractiveViewer()),
           ),
         ],
       ),
