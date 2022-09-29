@@ -10,10 +10,10 @@ class LearnOtherWidget extends StatelessWidget {
         title: const Text('OtherWidget'),
       ),
       body: const ScrollPicker(), // 滚动选择器
-      // body: const ScrollPageView(),
-      // body: const ReorderableListViewWidget(),
-      // body: const ScrollView(),
-      // body: const DefaultTextStyleWidget(),
+      // body: const ScrollPageView(), // 全屏滚动
+      // body: const ReorderableListViewWidget(), // 可排序列表
+      // body: const ScrollView(), // 滚动视图
+      // body: const DefaultTextStyleWidget(), // 默认文本样式
     );
   }
 }
