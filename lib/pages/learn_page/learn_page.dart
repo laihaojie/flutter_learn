@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learn/pages/learn_page/learn_controller.dart';
+import 'package:flutter_learn/pages/learn_page/learn_dart_api/learn_compute.dart';
 import 'package:flutter_learn/pages/learn_page/learn_widget/learn_fitted_box.dart';
 import 'package:flutter_learn/pages/learn_page/learn_widget/learn_future_builder.dart';
 import 'package:flutter_learn/pages/learn_page/learn_widget/learn_interactive_viewer.dart';
@@ -20,6 +21,9 @@ class LearnPage extends GetView<LearnController> {
     return Center(
       child: ListView(
         children: [
+          const Center(
+            child: Text("Flutter Widget", style: TextStyle(fontSize: 50)),
+          ),
           ListTile(
             title: const Text("ListView"),
             subtitle: const Text('列表'),
@@ -71,6 +75,14 @@ class LearnPage extends GetView<LearnController> {
             title: const Text("InteractiveViewer"),
             subtitle: const Text('二维平面缩放'),
             onTap: () => Get.to(() => const LearnInteractiveViewer()),
+          ),
+          const Center(
+            child: Text("Dart API", style: TextStyle(fontSize: 50)),
+          ),
+          ListTile(
+            title: const Text("compute"),
+            subtitle: const Text('启动新的线程 - 异步计算'),
+            onTap: () => Get.to(() => const LearnCompute()),
           ),
         ],
       ),
