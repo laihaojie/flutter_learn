@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learn/pages/learn_page/learn_controller.dart';
 import 'package:flutter_learn/pages/learn_page/learn_dart_api/learn_compute.dart';
+import 'package:flutter_learn/pages/learn_page/learn_widget/learn_composited_transform_follower_and_composited_transform_target.dart';
 import 'package:flutter_learn/pages/learn_page/learn_widget/learn_fitted_box.dart';
 import 'package:flutter_learn/pages/learn_page/learn_widget/learn_future_builder.dart';
 import 'package:flutter_learn/pages/learn_page/learn_widget/learn_interactive_viewer.dart';
@@ -75,6 +76,16 @@ class LearnPage extends GetView<LearnController> {
             title: const Text("InteractiveViewer"),
             subtitle: const Text('二维平面缩放'),
             onTap: () => Get.to(() => const LearnInteractiveViewer()),
+          ),
+          ListTile(
+            title: const Text(
+              "CompositedTransformFollower and CompositedTransformTarget",
+            ),
+            subtitle: const Text('组件跟随'),
+            onTap: () => Get.to(
+              () =>
+                  const LearnCompositedTransformFollowerAndCompositedTransformTarget(),
+            ),
           ),
           const Center(
             child: Text("Dart API", style: TextStyle(fontSize: 50)),
