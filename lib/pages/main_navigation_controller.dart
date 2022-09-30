@@ -53,9 +53,9 @@ class MainNavigationBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut<MainNavigationController>(() => MainNavigationController());
-    Get.lazyPut<HomeController>(() => HomeController());
+    // Get.lazyPut<HomeController>(() => HomeController());
+    Get.put(HomeController());
     Get.lazyPut<LearnController>(() => LearnController());
-    // Get.put(HomeController());
     Get.lazyPut<MeController>(() => MeController());
     Get.lazyPut<ChallengeController>(() => ChallengeController());
   }

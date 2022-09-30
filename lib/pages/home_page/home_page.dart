@@ -19,7 +19,7 @@ class HomePage extends GetView<HomeController> {
             shrinkWrap: true,
             itemCount: 10,
             itemBuilder: ((context, index) {
-              return Text("index: $index");
+              return Text("index: $index ${controller.counter}");
             }),
           ),
         ],
