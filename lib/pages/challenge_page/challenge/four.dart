@@ -92,19 +92,17 @@ class MyAnswer extends StatelessWidget {
           Positioned(
             top: 10,
             right: -30,
-            child: Container(
-              child: Transform.rotate(
-                angle: 45 / 180 * 3.14,
-                child: Container(
-                  width: 100,
-                  color: Colors.red,
-                  child: const Center(
-                    child: Text(
-                      'new',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                      ),
+            child: Transform.rotate(
+              angle: 45 / 180 * 3.14,
+              child: Container(
+                width: 100,
+                color: Colors.red,
+                child: const Center(
+                  child: Text(
+                    'new',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
                     ),
                   ),
                 ),

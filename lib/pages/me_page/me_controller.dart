@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:async';
 
 import 'package:get/get.dart';
@@ -5,7 +7,7 @@ import 'package:get/get.dart';
 class MeController extends GetxController {
   var count = 0.obs;
 
-  late final timer;
+  late final Timer timer;
 
   @override
   onInit() {
