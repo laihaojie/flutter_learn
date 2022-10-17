@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 class LearnOtherWidget extends StatelessWidget {
@@ -19,7 +21,7 @@ class LearnOtherWidget extends StatelessWidget {
 }
 
 class DefaultTextStyleWidget extends StatelessWidget {
-  const DefaultTextStyleWidget({Key? key}) : super(key: key);
+  const DefaultTextStyleWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +43,8 @@ class DefaultTextStyleWidget extends StatelessWidget {
 
 class ScrollView extends StatelessWidget {
   const ScrollView({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -58,13 +60,13 @@ class ScrollView extends StatelessWidget {
 }
 
 class ReorderableListViewWidget extends StatelessWidget {
-  const ReorderableListViewWidget({Key? key}) : super(key: key);
+  const ReorderableListViewWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ReorderableListView(
       header: const Center(child: Text('header')),
-      onReorder: ((oldIndex, newIndex) => print(oldIndex)),
+      onReorder: (oldIndex, newIndex) => print(oldIndex),
       children: List.generate(
         20,
         (index) => Container(
@@ -79,7 +81,7 @@ class ReorderableListViewWidget extends StatelessWidget {
 }
 
 class ScrollPageView extends StatelessWidget {
-  const ScrollPageView({Key? key}) : super(key: key);
+  const ScrollPageView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +99,7 @@ class ScrollPageView extends StatelessWidget {
 }
 
 class ScrollPicker extends StatelessWidget {
-  const ScrollPicker({Key? key}) : super(key: key);
+  const ScrollPicker({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +111,7 @@ class ScrollPicker extends StatelessWidget {
         overAndUnderCenterOpacity: 0.5, // 透明度
         diameterRatio: 1.9, // 相对于视口的直径
         // magnification: 1.2, // 当前项放大倍数
-        onSelectedItemChanged: (value) => print("选中了: $value"), // change回调
+        onSelectedItemChanged: (value) => print('选中了: $value'), // change回调
         physics: const FixedExtentScrollPhysics(), // 是否对准中间
         children: List.generate(
           100,

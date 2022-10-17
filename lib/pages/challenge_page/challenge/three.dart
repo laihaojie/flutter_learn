@@ -30,14 +30,13 @@ class Three extends StatelessWidget {
 }
 
 class MyAnswer extends StatelessWidget {
-  const MyAnswer({
-    Key? key,
-  }) : super(key: key);
+  const MyAnswer({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: InkWell(
+        // ignore: no-empty-block
         onTap: () {},
         // splashColor: Colors.blue,
         borderRadius: BorderRadius.circular(40),

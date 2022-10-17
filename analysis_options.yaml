@@ -1,7 +1,7 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
-  exclude: [ios/**, android/**, test/**]
+  exclude: [ios/**, android/**, test/**, lib/models/**]
   plugins:
     - dart_code_metrics
   errors:
@@ -69,26 +69,28 @@ dart_code_metrics:
     - avoid-use-expanded-as-spacer
     - avoid-wrapping-in-padding
 
-
-
 linter:
   rules:
     # This list is derived from the list of all available lints located at
     # https://github.com/dart-lang/linter/blob/master/example/all.yaml
-    - always_declare_return_types
+    ## 希望给函数加上返回值类型
+    # - always_declare_return_types
     - always_put_control_body_on_new_line
     # - always_put_required_named_parameters_first # we prefer having parameters in the same order as fields https://github.com/flutter/flutter/issues/10219
     - always_require_non_null_named_parameters
-    - always_specify_types
+    # 强制必须指定类型
+    # - always_specify_types
     # - always_use_package_imports # we do this commonly
     - annotate_overrides
     # - avoid_annotating_with_dynamic # conflicts with always_specify_types
     - avoid_bool_literals_in_conditional_expressions
     # - avoid_catches_without_on_clauses # blocked on https://github.com/dart-lang/linter/issues/3023
     # - avoid_catching_errors # blocked on https://github.com/dart-lang/linter/issues/3023
-    - avoid_classes_with_only_static_members
+    # 避免定义只包含静态成员的类。
+    # - avoid_classes_with_only_static_members
     - avoid_double_and_int_checks
-    - avoid_dynamic_calls
+    # 避免对“动态”目标进行方法调用或属性访问。
+    # - avoid_dynamic_calls
     - avoid_empty_else
     - avoid_equals_and_hash_code_on_mutable_classes
     - avoid_escaping_inner_quotes
@@ -129,7 +131,6 @@ linter:
     # - cascade_invocations # doesn't match the typical style of this repo
     - cast_nullable_to_non_nullable
     # - close_sinks # not reliable enough
-    - combinators_ordering
     # - comment_references # blocked on https://github.com/dart-lang/linter/issues/1142
     - conditional_uri_does_not_exist
     # - constant_identifier_names # needs an opt-out https://github.com/dart-lang/linter/issues/204

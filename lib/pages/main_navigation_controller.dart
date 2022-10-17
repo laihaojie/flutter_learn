@@ -1,9 +1,12 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/pages/challenge_page/challenge_controller.dart';
-import 'package:flutter_learn/pages/home_page/home_controller.dart';
-import 'package:flutter_learn/pages/learn_page/learn_controller.dart';
-import 'package:flutter_learn/pages/me_page/me_controller.dart';
 import 'package:get/get.dart';
+
+import 'challenge_page/challenge_controller.dart';
+import 'home_page/home_controller.dart';
+import 'learn_page/learn_controller.dart';
+import 'me_page/me_controller.dart';
 
 class MainNavigationController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -12,10 +15,10 @@ class MainNavigationController extends GetxController
   late var tabController = TabController(length: 4, vsync: this);
   late var arg = Get.arguments;
   late final List<String> tabs = [
-    "首页",
-    "挑战",
-    "分类",
-    "我的",
+    '首页',
+    '挑战',
+    '分类',
+    '我的',
   ];
   late var title = tabs[tabController.index].obs;
 
@@ -24,7 +27,7 @@ class MainNavigationController extends GetxController
     super.onInit();
     // tabController = TabController(length: 3, vsync: this);
     if (arg != null) {
-      var index = arg["index"];
+      final index = arg['index'];
       tabController.animateTo(index);
     }
 

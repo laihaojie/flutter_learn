@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/routers/app_pages.dart';
 import 'package:get/get.dart';
+
+import 'routers/app_pages.dart';
 
 void main() {
   runApp(GetMaterialApp(

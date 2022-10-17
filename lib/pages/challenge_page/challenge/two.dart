@@ -19,11 +19,11 @@ class _TwoState extends State<Two> {
       // body: const MyAnswer(),
       body: Center(
         child: GestureDetector(
-          onTap: (() {
+          onTap: () {
             setState(() {
               _visible = !_visible;
             });
-          }),
+          },
           child: AnimatedCrossFade(
             firstChild: Image.network(
               'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg',
@@ -44,7 +44,7 @@ class _TwoState extends State<Two> {
 }
 
 class MyAnswer extends StatefulWidget {
-  const MyAnswer({Key? key}) : super(key: key);
+  const MyAnswer({super.key});
 
   @override
   State<MyAnswer> createState() => _MyAnswerState();
@@ -58,11 +58,11 @@ class _MyAnswerState extends State<MyAnswer> {
   Widget build(BuildContext context) {
     return Center(
       child: GestureDetector(
-        onTap: (() {
+        onTap: () {
           setState(() {
             _visible = !_visible;
           });
-        }),
+        },
         child: AnimatedOpacity(
           opacity: _visible ? 1.0 : 0.0,
           onEnd: () {

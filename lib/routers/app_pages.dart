@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_learn/pages/detail_page/detail_controller.dart';
-import 'package:flutter_learn/pages/detail_page/detail_page.dart';
-import 'package:flutter_learn/pages/detail_page/test1_page.dart';
-import 'package:flutter_learn/pages/detail_page/test2_page.dart';
-import 'package:flutter_learn/pages/main_navigation_controller.dart';
-import 'package:flutter_learn/pages/main_navigation.dart';
 import 'package:get/get.dart';
+
+import '../pages/detail_page/detail_controller.dart';
+import '../pages/detail_page/detail_page.dart';
+import '../pages/detail_page/test1_page.dart';
+import '../pages/detail_page/test2_page.dart';
+import '../pages/main_navigation.dart';
+import '../pages/main_navigation_controller.dart';
+
 part 'app_routers.dart';
 
 class AppPages {
@@ -18,21 +20,6 @@ class AppPages {
         key: globalKey,
       ),
       binding: MainNavigationBinding(),
-      children: const [
-        // GetPage(
-        //   name: AppRouters.home,
-        //   page: () => const HomePage(),
-        // ),
-        // GetPage(
-        //   name: AppRouters.me,
-        //   page: () => const MePage(),
-        // ),
-        // GetPage(
-        //   name: AppRouters.challenge,
-        //   page: () => ChallengePage(),
-        //   binding: ChallengeBinding(),
-        // ),
-      ],
     ),
     GetPage(
       name: AppRouters.detail,

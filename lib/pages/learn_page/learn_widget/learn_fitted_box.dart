@@ -16,7 +16,7 @@ class LearnFittedBox extends StatelessWidget {
           color: Colors.blue,
           child: const FittedBox(
             // fit: BoxFit.scaleDown, // 适配文字换行
-            child: Text("Hello World", style: TextStyle(fontSize: 50)),
+            child: Text('Hello World', style: TextStyle(fontSize: 50)),
           ),
         ),
       ),

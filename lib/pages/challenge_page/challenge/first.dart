@@ -35,7 +35,7 @@ class First extends StatelessWidget {
 }
 
 class MyAnswer extends StatelessWidget {
-  const MyAnswer({Key? key}) : super(key: key);
+  const MyAnswer({super.key});
 
   @override
   Widget build(BuildContext context) {

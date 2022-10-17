@@ -15,8 +15,8 @@ class Four extends StatelessWidget {
       textDirection: TextDirection.ltr,
     )..layout();
 
-    double width = textPainter.width * 2;
-    double height = textPainter.height;
+    final double width = textPainter.width * 2;
+    final double height = textPainter.height;
 
     return Scaffold(
       appBar: AppBar(
@@ -67,8 +67,8 @@ class Four extends StatelessWidget {
 
 class MyAnswer extends StatelessWidget {
   const MyAnswer({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

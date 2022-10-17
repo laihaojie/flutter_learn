@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 class LearnListView extends StatelessWidget {
@@ -22,14 +24,14 @@ class LearnListView extends StatelessWidget {
       ),
       appBar: AppBar(
         title: GestureDetector(
-          onTap: (() {
+          onTap: () {
             // 回到顶部
             _controller.animateTo(
               0,
               duration: const Duration(milliseconds: 200),
               curve: Curves.ease,
             );
-          }),
+          },
           child: const Text('ListView'),
         ),
       ),
@@ -45,10 +47,9 @@ class LearnListView extends StatelessWidget {
 
 class ListViewDismissible extends StatelessWidget {
   const ListViewDismissible({
-    Key? key,
+    super.key,
     required ScrollController controller,
-  })  : _controller = controller,
-        super(key: key);
+  }) : _controller = controller;
 
   final ScrollController _controller;
 
@@ -112,7 +113,6 @@ class ListViewDismissible extends StatelessWidget {
             DismissDirection.startToEnd: 0.5,
           },
           resizeDuration: const Duration(milliseconds: 200), // 重绘的时间
-          movementDuration: const Duration(milliseconds: 200), // 滑动动画时间
           child: Container(
             color: Colors.blue[100 * (index % 9)],
             height: 50,
@@ -126,7 +126,7 @@ class ListViewDismissible extends StatelessWidget {
 }
 
 class ListViewRefresh extends StatelessWidget {
-  const ListViewRefresh(this._controller, {Key? key}) : super(key: key);
+  const ListViewRefresh(this._controller, {super.key});
 
   final ScrollController _controller;
 
@@ -155,10 +155,9 @@ class ListViewRefresh extends StatelessWidget {
 
 class ListViewScrollbar extends StatelessWidget {
   const ListViewScrollbar({
-    Key? key,
+    super.key,
     required ScrollController controller,
-  })  : _controller = controller,
-        super(key: key);
+  }) : _controller = controller;
 
   final ScrollController _controller;
 
@@ -185,10 +184,9 @@ class ListViewScrollbar extends StatelessWidget {
 
 class ListViewController extends StatelessWidget {
   const ListViewController({
-    Key? key,
+    super.key,
     required ScrollController controller,
-  })  : _controller = controller,
-        super(key: key);
+  }) : _controller = controller;
 
   final ScrollController _controller;
 
@@ -214,8 +212,8 @@ class ListViewController extends StatelessWidget {
 
 class ListVIewSeparated extends StatelessWidget {
   const ListVIewSeparated({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -229,14 +227,14 @@ class ListVIewSeparated extends StatelessWidget {
       },
       itemCount: 100, // 子元素的数量
       cacheExtent: 300, // 缓存区域的高度
-      itemBuilder: ((context, index) {
+      itemBuilder: (context, index) {
         return Container(
           color: Colors.blue[100 * (index % 9)],
           height: 100,
           alignment: Alignment.center,
           child: Text('Item $index'),
         );
-      }),
+      },
     );
   }
 }

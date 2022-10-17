@@ -20,7 +20,7 @@ class LearnLayoutBuilder extends StatelessWidget {
                 color: Colors.blue,
                 child: const Center(
                   child: Text(
-                    "自适应父亲高度的一半 \r\n LayoutBuilder",
+                    '自适应父亲高度的一半 \r\n LayoutBuilder',
                     style: TextStyle(fontSize: 30, color: Colors.white),
                   ),
                 ),
@@ -32,7 +32,7 @@ class LearnLayoutBuilder extends StatelessWidget {
                   color: Colors.red,
                   child: const Center(
                     child: Text(
-                      "获取屏幕旋转方向\r\n OrientationBuilder",
+                      '获取屏幕旋转方向\r\n OrientationBuilder',
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                   ),

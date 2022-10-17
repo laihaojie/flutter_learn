@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/pages/challenge_page/challenge_page.dart';
-import 'package:flutter_learn/pages/home_page/home_page.dart';
-import 'package:flutter_learn/pages/learn_page/learn_page.dart';
-import 'package:flutter_learn/pages/main_navigation_controller.dart';
-import 'package:flutter_learn/pages/me_page/me_page.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
+
+import 'challenge_page/challenge_page.dart';
+import 'home_page/home_page.dart';
+import 'learn_page/learn_page.dart';
+import 'main_navigation_controller.dart';
+import 'me_page/me_page.dart';
 
 class MainNavigation extends GetView<MainNavigationController> {
   const MainNavigation({super.key});
@@ -24,10 +25,10 @@ class MainNavigation extends GetView<MainNavigationController> {
           length: 4,
           controller: controller.tabController,
           tabs: const [
-            Tab(icon: Icon(Icons.home), child: Text("Tab1")),
-            Tab(icon: Icon(Icons.home), child: Text("Tab1")),
-            Tab(icon: Icon(Icons.chat), child: Text("Tab2")),
-            Tab(icon: Icon(Icons.book), child: Text("Tab3")),
+            Tab(icon: Icon(Icons.home), child: Text('Tab1')),
+            Tab(icon: Icon(Icons.home), child: Text('Tab1')),
+            Tab(icon: Icon(Icons.chat), child: Text('Tab2')),
+            Tab(icon: Icon(Icons.book), child: Text('Tab3')),
           ],
         ),
         // bottomNavigationBar: BottomNavigationBar(items: const [

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -76,7 +78,7 @@ class _LearnFutureBuilderState extends State<LearnFutureBuilder> {
                 child: const Text('添加hi'),
               ),
               ElevatedButton(
-                onPressed: () => _controller.sink.addError("error"),
+                onPressed: () => _controller.sink.addError('error'),
                 child: const Text('添加错误'),
               ),
               // ElevatedButton(
@@ -96,13 +98,13 @@ class _LearnFutureBuilderState extends State<LearnFutureBuilder> {
                     case ConnectionState.none:
                       return const Text('NONE: 没有数据流');
                     case ConnectionState.waiting:
-                      return const Text("WAITING: 等待数据流");
+                      return const Text('WAITING: 等待数据流');
                     case ConnectionState.active:
                       return snapshot.hasError
-                          ? Text("ACTIVE: 错误:${snapshot.error}")
-                          : Text("ACTIVE: 正确: ${snapshot.data}");
+                          ? Text('ACTIVE: 错误:${snapshot.error}')
+                          : Text('ACTIVE: 正确: ${snapshot.data}');
                     case ConnectionState.done:
-                      return const Text("DONE: 结束");
+                      return const Text('DONE: 结束');
                   }
                 },
               ),
@@ -116,8 +118,8 @@ class _LearnFutureBuilderState extends State<LearnFutureBuilder> {
 
 class FutureBuilderWidget extends StatelessWidget {
   const FutureBuilderWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

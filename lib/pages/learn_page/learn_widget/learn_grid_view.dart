@@ -17,7 +17,7 @@ class LearnGridView extends StatelessWidget {
 }
 
 class GridViewCount extends StatelessWidget {
-  const GridViewCount({Key? key}) : super(key: key);
+  const GridViewCount({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class GridViewCount extends StatelessWidget {
 }
 
 class GridViewExtent extends StatelessWidget {
-  const GridViewExtent({Key? key}) : super(key: key);
+  const GridViewExtent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ class GridViewExtent extends StatelessWidget {
 }
 
 class GridViewDelegate extends StatelessWidget {
-  const GridViewDelegate({Key? key}) : super(key: key);
+  const GridViewDelegate({super.key});
 
   @override
   Widget build(BuildContext context) {

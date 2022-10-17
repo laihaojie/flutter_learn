@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/pages/main_navigation_controller.dart';
-import 'package:flutter_learn/routers/app_pages.dart';
 import 'package:get/get.dart';
+
+import '../../routers/app_pages.dart';
+import '../main_navigation_controller.dart';
 
 class Test2Page extends StatelessWidget {
   const Test2Page({super.key});

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/pages/home_page/home_controller.dart';
 import 'package:get/get.dart';
 
+import 'home_controller.dart';
+
 class HomePage extends GetView<HomeController> {
-  final TabController tabbarController;
   const HomePage(this.tabbarController, {super.key});
+  final TabController tabbarController;
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +19,9 @@ class HomePage extends GetView<HomeController> {
           ListView.builder(
             shrinkWrap: true,
             itemCount: 10,
-            itemBuilder: ((context, index) {
-              return Text("index: $index ${controller.counter}");
-            }),
+            itemBuilder: (context, index) {
+              return Text('index: $index ${controller.counter}');
+            },
           ),
         ],
       ),

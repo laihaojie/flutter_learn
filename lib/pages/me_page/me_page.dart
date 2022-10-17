@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/pages/me_page/me_controller.dart';
-import 'package:flutter_learn/routers/app_pages.dart';
 import 'package:get/get.dart';
 import 'package:jie_preview_image/jie_preview_image.dart';
 
+import '../../routers/app_pages.dart';
+import 'me_controller.dart';
+
 class MePage extends GetView<MeController> {
-  final TabController tabbarController;
   const MePage(this.tabbarController, {super.key});
+  final TabController tabbarController;
 
   @override
   Widget build(BuildContext context) {
@@ -25,20 +26,20 @@ class MePage extends GetView<MeController> {
             ),
           ),
           ElevatedButton(
-            onPressed: (() {
+            onPressed: () {
               Get.toNamed(AppRouters.detail);
-            }),
+            },
             child: const Text('跳转到详情页'),
           ),
           ElevatedButton(
-            onPressed: (() {
+            onPressed: () {
               tabbarController.animateTo(0);
-            }),
+            },
             child: const Text('跳转到首页页'),
           ),
           TestContext(key: UniqueKey(), controller: controller),
           ElevatedButton(
-            onPressed: (() {
+            onPressed: () {
               // show dialog
               showDialog(
                 context: context,
@@ -61,7 +62,7 @@ class MePage extends GetView<MeController> {
               Future.delayed(const Duration(seconds: 2), () {
                 Get.toNamed(AppRouters.detail);
               });
-            }),
+            },
             child: const Text('showDialog'),
           ),
         ],
@@ -72,16 +73,16 @@ class MePage extends GetView<MeController> {
 
 class TestContext extends StatelessWidget {
   const TestContext({
-    Key? key,
+    super.key,
     required this.controller,
-  }) : super(key: key);
+  });
 
   final MeController controller;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: (() {
+      onPressed: () {
         previewImage(
           context,
           currentUrl:
@@ -91,7 +92,7 @@ class TestContext extends StatelessWidget {
             'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',
           ],
         );
-      }),
+      },
       child: Text('图片预览${controller.count.value}'),
     );
   }

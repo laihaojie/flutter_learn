@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/routers/app_pages.dart';
 import 'package:get/get.dart';
+
+import '../../routers/app_pages.dart';
 
 class Test1Page extends StatelessWidget {
   const Test1Page({super.key});
