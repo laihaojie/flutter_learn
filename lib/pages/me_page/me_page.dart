@@ -19,7 +19,7 @@ class MePage extends GetView<MeController> {
             child: Center(
               child: Column(
                 children: [
-                  MyText(controller.count.value as DateTime),
+                  MyText(controller.count.value),
                   MyText(DateTime.now()),
                 ],
               ),
@@ -101,7 +101,8 @@ class TestContext extends StatelessWidget {
 class MyText extends StatefulWidget {
   const MyText(this.count, {super.key});
 
-  final DateTime count;
+  // ignore: avoid-dynamic
+  final dynamic count;
 
   @override
   State<MyText> createState() => _MyTextState();

@@ -86,8 +86,8 @@ class ScrollPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageView(
-      pageSnapping: false, // 是否自动贴合边界
-      scrollDirection: Axis.vertical, // 滚动方向
+      // pageSnapping: false, // 是否自动贴合边界
+      // scrollDirection: Axis.vertical, // 滚动方向
       onPageChanged: (value) => print(value), // 页面改变时回调
       children: [
         Container(color: Colors.red),
